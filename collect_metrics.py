@@ -20,7 +20,7 @@ def collect_and_store_metrics():
     #------------------------------------------------------------------------------------------
 
     # A) Timestamp
-    timestamp = str(datetime.now)
+    timestamp = str(datetime.now())
 
     # B) CPU frequency
     cpu_freq = psutil.cpu_freq().current #in MHZ
