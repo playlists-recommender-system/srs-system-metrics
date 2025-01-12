@@ -2,7 +2,7 @@ from typing import Any
 
 def handler(input: dict, context: object) -> dict[str, Any]:
     #Buffer size
-    k = 5
+    k = 12 #for a 60 seconds sample since the data is collected in each 5 seconds in the cluster
 
     #Loads/init the buffer
     buffers = context.env.get("buffers")
