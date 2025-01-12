@@ -126,4 +126,4 @@ def collect_and_store_metrics():
 if __name__ == "__main__":
     while True:
         collect_and_store_metrics()
-        time.sleep(5)
+        time.sleep(1)
