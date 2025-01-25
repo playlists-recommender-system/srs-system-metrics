@@ -10,7 +10,9 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "psutil (>=6.1.1,<7.0.0)",
-    "redis (>=5.2.1,<6.0.0)"
+    "redis (>=5.2.1,<6.0.0)",
+    "dash (>=2.18.2,<3.0.0)",
+    "pandas (>=2.2.3,<3.0.0)"
 ]
 
 
