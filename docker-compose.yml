@@ -1,0 +1,25 @@
+services:
+  redis:
+    image: redis:6.2
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app_network
+
+  app:
+    build:
+      context: .
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - APP_PORT=8050
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    container_name: srs-system-metrics
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

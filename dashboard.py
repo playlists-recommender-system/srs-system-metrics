@@ -5,10 +5,14 @@ import plotly.graph_objs as go
 import redis
 import json
 import time
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 #Connect to redis
 def get_redis_data():
-    r = redis.Redis(host='localhost', port=6379, decode_responses = True)
+    r = redis.Redis(host=os.getenv('REDIS_HOST'), port=os.getenv('REDIS_PORT'), decode_responses = True)
     raw_data = r.get('augustovicente-proj3-output')
     if raw_data:
         return json.loads(raw_data)
@@ -83,4 +87,4 @@ def update_graphs(n):
 
 #Run Server
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8050)
+    app.run_server(debug=True, host='0.0.0.0', port=os.getenv('APP_PORT'))
